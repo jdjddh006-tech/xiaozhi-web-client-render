@@ -7,11 +7,11 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     libsndfile1 libsndfile1-dev nginx \
     && rm -rf /var/lib/apt/lists/*
 
-COPY xiaozhi-web-client-render.zip /tmp/xiaozhi-web-client-render.zip
+COPY xiaozhi-web-client-termux-render.zip /tmp/xiaozhi-web-client-termux-render.zip
 RUN mkdir -p /tmp/unpacked && \
-    unzip -q /tmp/xiaozhi-web-client-render.zip -d /tmp/unpacked && \
+    unzip -q /tmp/xiaozhi-web-client-termux-render.zip -d /tmp/unpacked && \
     cp -a /tmp/unpacked/xiaozhi-web-client-termux-render/. /app/ && \
-    rm -rf /tmp/unpacked /tmp/xiaozhi-web-client-render.zip
+    rm -rf /tmp/unpacked /tmp/xiaozhi-web-client-termux-render.zip
 
 RUN pip install --no-cache-dir -r requirements.txt
 RUN chmod +x /app/render-start.sh
