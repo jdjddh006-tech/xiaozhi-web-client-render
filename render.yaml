@@ -1,0 +1,22 @@
+services:
+  - type: web
+    name: xiaozhi-web-client
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /
+    envVars:
+      - key: WS_URL
+        value: ws://localhost:9005
+      - key: DEVICE_TOKEN
+        sync: false
+      - key: ENABLE_TOKEN
+        value: "false"
+      - key: OTA_URL
+        value: https://api.tenclass.net/xiaozhi/ota/
+      - key: FIRMWARE_VERSION
+        value: web-client-1.0.0
+      - key: DEVICE_ID
+        sync: false
+      - key: CLIENT_ID
+        sync: false
